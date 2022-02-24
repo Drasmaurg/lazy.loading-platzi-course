@@ -1,3 +1,4 @@
+import { registerImage } from './lazy'
 /**
  * This file is just a silly example to show everything working in the browser.
  * When you're ready to start on your site, clear the file. Happy hacking!
@@ -23,7 +24,7 @@ const createImageNode = () => {
     const imagen = document.createElement('img')
     imagen.className = "mx-auto";
     imagen.width = '320';
-    imagen.src = `https://randomfox.ca/images/${random()}.jpg`;
+    imagen.dataset.src = `https://randomfox.ca/images/${random()}.jpg`;
     
 
     container.appendChild(imagen);
@@ -40,6 +41,7 @@ const addButton = document.querySelector('button');
 const addImage = () => {
     const newImage = createImageNode();
     mountNode.append(newImage);
+    registerImage(newImage);
 } ;
 
 
